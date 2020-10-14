@@ -17,6 +17,11 @@ const routes = [
     path: "/apply",
     name: "apply",
     component: () => import("../pages/applyForm/index.vue")
+  },
+  {
+    path: "/order",
+    name: "order",
+    component: () => import("../pages/order/index.vue")
   }
 ];
 

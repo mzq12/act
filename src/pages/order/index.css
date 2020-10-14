@@ -1,0 +1,48 @@
+.orderContainer {
+  background: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 30px 10px 27px 10px;
+  margin-bottom: 10px;
+}
+
+.orderContainer .title {
+
+  font-size: 14px;
+}
+
+.orderContainer .queryBtn {
+  border: none;
+  outline: none;
+  width: 130px;
+  height: 30px;
+  background: #1682FB;
+  color: #fff;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.orderResult {
+  box-sizing: border-box;
+  padding: 10px;
+  background: #fff;
+}
+
+.orderResult .title {
+  margin: 0;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #F2F2F2;
+}
+
+.orderResult .orderItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 8px 0;
+  border-bottom: 1px solid #F2F2F2;
+  font-size: 12px;
+}

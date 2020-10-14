@@ -62,3 +62,20 @@
   font-weight: 400;
   color: #FFFFFF;
 }
+
+.transforInfo .line {
+  margin-bottom: 16px;
+}
+
+.transforInfo .line .label {
+  font-size: 14px;
+}
+
+.transforInfo .line .content {
+  color: #F44250;
+}
+
+.transforInfo .line .subtitle {
+  font-size: 12px;
+  margin: 0;
+}
