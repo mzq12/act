@@ -1,0 +1,67 @@
+.scheduleList {
+  background: #ffffff;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 6px;
+}
+
+.scheduleList .title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #F2F2F2;
+  margin: 0;
+}
+
+.scheduleListItem {
+  padding: 10px 0 15px 0;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.scheduleListItem .title {
+  display: flex;
+  align-items: center;
+}
+
+.scheduleListItem .title .index {
+  width: 40px;
+  height: 40px;
+  background: #FD7275;
+  color: #fff;
+  flex-shrink: 0;
+  text-align: center;
+  line-height: 40px;
+  margin-right: 10px;
+}
+
+.scheduleListItem .title .content {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 13px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.scheduleListItem .steps {
+  box-sizing: border-box;
+  padding: 10px 0 15px 0;
+}
+
+.scheduleListItem .steps .step {
+  font-size: 13px;
+  font-weight: 400;
+  color: #7C7C7C;
+  margin-bottom: 10px;
+}
+
+.scheduleListItem .steps .step .stepIndex {
+  color: #585858;
+}
+
+.scheduleListItem:last-child {
+  border-bottom: none
+}

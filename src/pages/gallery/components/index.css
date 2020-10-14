@@ -1,0 +1,52 @@
+.gallery_container {
+  padding: 0 10px;
+  background: #fff;
+}
+
+.gallery_container .title {
+  font-size: 16px;
+  color: #000000;
+  line-height: 46px;
+  margin-bottom: 15px;
+  margin: 0;
+}
+
+.gallery_pics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.gallery_pics .pic {
+  width: 168px;
+  margin-bottom: 21px;
+}
+
+.gallery_pics .pic img {
+  width: 168px;
+  height: 112px;
+}
+
+.gallery_pics .pic .subTitle {
+  width: 150px;
+  font-size: 10px;
+  color: #ABABAB;
+  margin: 0;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.modal img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

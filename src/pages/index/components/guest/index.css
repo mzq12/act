@@ -1,0 +1,38 @@
+.guest {
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 6px;
+  background: #fff;
+}
+
+.guest .title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #343434;
+  box-sizing: border-box;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #F2F2F2;
+  margin: 0 0 13px 0;
+}
+
+.guestList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.guestList .guestListItem {
+  margin-bottom: 19px;
+}
+
+.guestList .guestListItem img {
+  width: 168px;
+  height: 112px;
+}
+
+.guestList .guestListItem .subTitle {
+  width: 150px;
+  font-size: 10px;
+  color: #ABABAB;
+  margin: 0;
+}

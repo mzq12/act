@@ -1,0 +1,46 @@
+.apply_form {
+  padding: 0 10px;
+  background: #fff;
+}
+
+.apply_form .title {
+  font-size: 16px;
+  color: #000000;
+  line-height: 46px;
+  margin-bottom: 15px;
+  margin: 0;
+  text-align: center;
+}
+
+.apply_form .el-form-item__label {
+  padding: 0 !important;
+  font-weight: 500;
+  color: #000000;
+}
+
+.apply_form .el-select.el-select--small .el-input--small .el-input__inner {
+  background: #eee;
+}
+
+.apply_form .el-form-item {
+  margin-bottom: 0;
+}
+
+.apply_form .instruction {
+  font-size: 12px;
+  font-weight: 400;
+  color: #000000;
+  margin-top: 23px;
+  margin-bottom: 80px;
+}
+
+.apply_form .submitBtn {
+  width: 100vw;
+  height: 40px;
+  background: #1682FB;
+  outline: none;
+  border: 0;
+  color: rgb(255 255 255);
+  font-size: 18px;
+  margin-left: -10px;
+}

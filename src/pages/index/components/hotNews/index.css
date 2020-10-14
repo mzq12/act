@@ -1,0 +1,44 @@
+.hotNews {
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 6px;
+  background: #fff;
+}
+
+.hotNews .title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #FD7275;
+  box-sizing: border-box;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #F2F2F2;
+  margin: 0 0 13px 0;
+}
+
+.hotNewsList .newsListItem {
+  margin: 0;
+  font-size: 13px;
+  color: #000000;
+  opacity: 0.8;
+  box-sizing: border-box;
+  padding: 8px 0;
+  border-bottom: 1px solid #E0E0E0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hotNewsList .newsListItem:last-child {
+  border-bottom: none;
+}
+
+.hotNewsList .newsListItem .index {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  margin-right: 8px;
+}
+
+.hotNewsList .newsListItem .index.red {
+  color: #FD7275;
+}
