@@ -104,7 +104,9 @@ export default {
   height: 112px;
   margin-bottom: 6px;
 }
-
+.companyContiner .companyGallery .intro {
+  margin-bottom: 21px;
+}
 .companyContiner .companyGallery .subtitle {
   margin: 0;
   font-size: 12px;
