@@ -1,0 +1,18 @@
+.applyEntry {
+  box-sizing: border-box;
+  padding: 10px;
+  margin-bottom: 24px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.applyEntry .appyBtn {
+  border: none;
+  outline: none;
+  width: 186px;
+  background: #1581FB;
+  font-size: 18px;
+  color: #fff;
+}

@@ -9,6 +9,7 @@
     <gallery></gallery>
     <context></context>
     <trade></trade>
+    <applyEntry></applyEntry>
     <bfooter></bfooter>
   </div>
 </template>
@@ -23,6 +24,7 @@ import guest from './components/guest/index'
 import gallery from './components/gallery/index'
 import context from './components/context/index'
 import trade from './components/trade/index'
+import applyEntry from './components/applyEntry/index'
 export default {
   name: 'index',
   components: {
@@ -35,6 +37,7 @@ export default {
     gallery,
     context,
     trade,
+    applyEntry,
     bfooter
   }
 }

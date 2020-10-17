@@ -3,13 +3,14 @@
     <h4 class="title">现场图集</h4>
     <div class="galleryList">
       <div class="galleryListItem" v-for="(item, index) in guests" :key="index">
-        <img :src="item.imgSrc" @click="toGallery(item.id)" />
-        <p class="subTitle">{{ item.position }}</p>
+        <img :src="item.img_url" @click="toGallery(item.id)" />
+        <p class="subTitle">{{ item.images_title }}</p>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { getGallery } from '../../../../apis'
 export default {
   name: 'indexGallery',
   data() {
@@ -22,51 +23,20 @@ export default {
       sessionStorage.setItem('galleryId', id)
       this.$router.push('/gallery')
     },
+    formatGallery(gallery) {
+      gallery.forEach((pic) => {
+        pic.img_url = JSON.parse(pic.images_url)[0]
+      })
+      return gallery
+    }
   },
-  mounted() {
-    setTimeout(() => {
-      this.guests = [
-        {
-          imgSrc: require('../../../../assets/guest1.jpg'),
-          position: '世界卫生组织传统补充和整合医学处协调员',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../../assets/guest2.jpg'),
-          position: '世界卫生组织西太平洋地区主任',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../../assets/guest3.jpg'),
-          position: '世界卫生组织驻华代表',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../../assets/guest4.jpg'),
-          position: '国际标准化组织中医药技术委员会ISO/TC 249主席',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../../assets/guest1.jpg'),
-          position: '国际标准化组织中医药技术委员会ISO/TC 249主席',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../../assets/guest2.jpg'),
-          position: '国际标准化组织中医药技术委员会ISO/TC 249主席',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../../assets/guest3.jpg'),
-          position: '国际标准化组织中医药技术委员会ISO/TC 249主席',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../../assets/guest4.jpg'),
-          position: '国际标准化组织中医药技术委员会ISO/TC 249主席',
-          id: 1,
-        },
-      ]
+  created() {
+    getGallery().then((res) => {
+      console.log(res)
+      if (res.data.code === 0) {
+
+        this.guests = this.formatGallery(res.data.data)
+      }
     })
   }
 }

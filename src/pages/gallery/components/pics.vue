@@ -3,8 +3,8 @@
     <h4 class="title">会场洽谈合影</h4>
     <div class="gallery_pics">
       <div class="pic" v-for="(item, index) in pics" :key="index">
-        <img :src="item.imgSrc" @click="preview(item.imgSrc)" />
-        <p class="subTitle">{{ item.position }}</p>
+        <img :src="item" @click="preview(item)" />
+        <!--  <p class="subTitle">{{ item.position }}</p> -->
       </div>
     </div>
     <div class="modal" v-if="preivewImgSrc" @click="close">
@@ -13,6 +13,7 @@
   </div>
 </template>
 <script>
+import { getGalleryDetail } from '../../../apis'
 export default {
   data() {
     return {
@@ -30,50 +31,12 @@ export default {
   },
   created() {
     const galleryId = sessionStorage.getItem('galleryId')
-    setTimeout(() => {
-      this.pics = [
-        {
-          imgSrc: require('../../../assets/guest1.jpg'),
-          position: '世界卫生组织传统补充和整合医学处协调员',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../assets/guest2.jpg'),
-          position: '世界卫生组织西太平洋地区主任',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../assets/guest3.jpg'),
-          position: '世界卫生组织驻华代表',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../assets/guest4.jpg'),
-          position: '国际标准化组织中医药技术委员会ISO/TC 249主席',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../assets/guest1.jpg'),
-          position: '国际标准化组织中医药技术委员会ISO/TC 249主席',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../assets/guest2.jpg'),
-          position: '国际标准化组织中医药技术委员会ISO/TC 249主席',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../assets/guest3.jpg'),
-          position: '国际标准化组织中医药技术委员会ISO/TC 249主席',
-          id: 1,
-        },
-        {
-          imgSrc: require('../../../assets/guest4.jpg'),
-          position: '国际标准化组织中医药技术委员会ISO/TC 249主席',
-          id: 1,
-        },
-      ]
-    }, 1000)
+    getGalleryDetail(galleryId).then((res) => {
+      if (res.data.code === 0) {
+        this.pics = JSON.parse(res.data.data.images_url)
+      }
+    })
+
   }
 }
 </script>

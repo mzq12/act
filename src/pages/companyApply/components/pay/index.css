@@ -1,0 +1,81 @@
+.payInfo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 0 20px;
+}
+
+.payInfo .infoCotainer {
+  background: #FFFFFF;
+  border-radius: 4px;
+  margin: 154px auto 0 auto;
+  box-sizing: border-box;
+  padding: 40px 10px 0 10px;
+  text-align: center;
+}
+
+.payInfo .infoCotainer .total {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.payInfo .infoCotainer .total .total_label {
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+.payInfo .infoCotainer .total .total_number {
+  font-size: 16px;
+  font-weight: 500;
+  color: #F31A2E;
+}
+
+.payInfo .el-tabs__item {
+  font-size: 12px !important;
+  padding: 0 10px;
+  height: 30px;
+  line-height: 30px;
+  background: linear-gradient(0deg, #EEEEEE 0%, #FFFFFF 100%);
+}
+
+.payInfo .el-tabs__item.is-active {
+  color: #fff;
+  background: #1682FB;
+}
+
+.payInfo .el-tabs__content {
+  text-align: left;
+}
+
+.payInfo .infoCotainer .payBtn {
+  width: 100%;
+  height: 40px;
+  background: #1682FB;
+  border: none;
+  outline: none;
+  text-align: center;
+  margin: 40px auto;
+  font-size: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+.transforInfo .line {
+  margin-bottom: 16px;
+}
+
+.transforInfo .line .label {
+  font-size: 14px;
+}
+
+.transforInfo .line .content {
+  color: #F44250;
+}
+
+.transforInfo .line .subtitle {
+  font-size: 12px;
+  margin: 0;
+}
