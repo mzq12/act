@@ -6,7 +6,7 @@
       <h4 class="title">付款信息查询</h4>
       <el-input
         v-model="input"
-        placeholder="请输入订单号"
+        placeholder="请输入报名时的手机号或是联系人姓名进行查询"
         size="small"
       ></el-input>
       <button class="queryBtn">查询</button>
@@ -35,6 +35,17 @@
         <span class="orderItemLeft">支付金额</span>
         <span class="orderItemRight">￥3100.00</span>
       </p>
+    </div>
+    <div class="offlieInfo">
+      <h5 class="title">线下汇款信息</h5>
+      <p class="desc">账户名称:世界针灸学会联合会</p>
+      <p class="desc">World Federation of Acupuncture-Moxibustion Societies</p>
+      <p class="desc">账号:0200004309014478412</p>
+      <p class="desc">
+        Bei Xin Qiao Subbranch of Beijing Branch of Industrial and Commercial
+        Bank of China（中国工商银行北京北新桥支行）
+      </p>
+      <p class="desc">SWIFT CODE: ICBKCNBJBJM</p>
     </div>
   </div>
 </template>

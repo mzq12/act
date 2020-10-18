@@ -8,7 +8,10 @@ const fetch = axios.create({
 });
 fetch.interceptors.request.use(
   function(config) {
-    if (config.method === "post") {
+    if (
+      config.method === "post" &&
+      config.headers["Content-Type"] !== "multipart/form-data;charset=UTF-8"
+    ) {
       config.data = JSON.stringify(config.data);
     }
     return config;

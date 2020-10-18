@@ -7,6 +7,13 @@ export let personalApply = data => {
     data: data
   });
 };
+export let companyApply = data => {
+  return fetch({
+    method: "post",
+    url: "/v1/special/company",
+    data: data
+  });
+};
 export let getLastedNews = () => {
   return fetch({
     method: "post",
@@ -52,5 +59,15 @@ export let getNewsDetail = nid => {
     data: {
       nid: nid
     }
+  });
+};
+export let uploadFile = data => {
+  return fetch({
+    method: "post",
+    url: "/v1/special/upload",
+    headers: {
+      "Content-Type": "multipart/form-data;charset=UTF-8"
+    },
+    data: data
   });
 };

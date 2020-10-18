@@ -26,6 +26,20 @@
   margin-bottom: 0;
 }
 
+.optionSlot {
+  margin: 0;
+  white-space: break-spaces;
+  display: flex;
+  align-items: center;
+}
+
+.optionSlot.marginBottom12 {
+  height: 40px;
+  line-height: 16px;
+}
+
+
+
 .apply_form .instruction {
   font-size: 12px;
   font-weight: 400;

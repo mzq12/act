@@ -34,9 +34,10 @@
       <el-upload
         v-if="formData.join_type === '2'"
         class="upload-demo"
-        action="https://jsonplaceholder.typicode.com/posts/"
+        action=""
         :file-list="fileList"
         list-type="picture"
+        :before-upload="handleBeforeUpload"
       >
         <el-button size="small" type="primary">上传会员证书</el-button>
       </el-upload>
@@ -125,7 +126,7 @@
   </div>
 </template>
 <script>
-import { personalApply } from '../../../apis'
+import { personalApply, uploadFile } from '../../../apis'
 export default {
   data() {
     return {
@@ -167,6 +168,24 @@ export default {
     },
     handlApplyChange(data) {
       console.log(data)
+    },
+    handleBeforeUpload(file) {
+      console.log(file)
+      let param = new FormData(); //创建form对象
+      param.append('file', file);//通过append向form对象添加数据
+      uploadFile(param).then(res => {
+        console.log(res)
+        if (res.data.code === '200') {
+          this.formData.cert_img = 'http://wfas.org.cn/' + res.data.data
+          this.fileList = [
+            {
+              name: '会员证书',
+              url: 'http://wfas.org.cn/' + res.data.data
+            }
+          ]
+        }
+      })
+      return false
     },
     submit() {
       if (this.validate()) {

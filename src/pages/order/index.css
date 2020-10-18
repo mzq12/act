@@ -26,6 +26,7 @@
   box-sizing: border-box;
   padding: 10px;
   background: #fff;
+  margin-bottom: 10px;
 }
 
 .orderResult .title {
@@ -45,4 +46,20 @@
   padding: 8px 0;
   border-bottom: 1px solid #F2F2F2;
   font-size: 12px;
+}
+
+.offlieInfo {
+  box-sizing: border-box;
+  padding: 10px;
+  background: #fff;
+}
+
+.offlieInfo .title {
+  font-size: 16px;
+  margin: 0 0 12px 0;
+}
+
+.offlieInfo .desc {
+  font-size: 14px;
+  margin: 0 0 12px 0;
 }

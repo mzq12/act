@@ -3,7 +3,7 @@
     <banner></banner>
     <tabs></tabs>
     <aform></aform>
-    <pay></pay>
+    <pay v-if="false"></pay>
   </div>
 </template>
 <script>
