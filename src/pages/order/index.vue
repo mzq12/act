@@ -23,9 +23,12 @@
       </p>
       <p class="orderItem">
         <span class="orderItemLeft">类型</span>
+        <span class="orderItemRight">{{ joinType }}</span>
+      </p>
+      <p class="orderItem">
+        <span class="orderItemLeft">付款状态</span>
         <span class="orderItemRight">展会报名</span>
       </p>
-
       <p class="orderItem">
         <span class="orderItemLeft">支付金额</span>
         <span class="orderItemRight">￥{{ orderInfo.pay_amount }}</span>
@@ -61,7 +64,8 @@ export default {
       orderInfo: {
         pay_orderid: '',
         created_at: 0,
-        join_type: '',
+        join_type: '0',
+        pay_status: '0',
         pay_amount: 0
       }
     }
@@ -70,7 +74,7 @@ export default {
     queryOrder() {
       searchOrder(this.input).then((res) => {
         console.log(res)
-        if (res.data.code === 0) {
+        if (res.data.code === 0 && res.data.data.length > 0) {
           Object.assign(this.orderInfo, res.data.data)
           this.showResult = true
         }
@@ -82,8 +86,12 @@ export default {
       return new Date(this.orderInfo.created_at * 1000).toLocaleDateString()
     },
     joinType() {
-      let map = { '2': '个人参会' }
-      return ''
+      let map = { '0': '个人参会', '1': '公司参展' }
+      return map[this.orderInfo.sinup_type]
+    },
+    payType() {
+      let map = { '0': '待支付', '1': '已支付' }
+      return map[this.orderInfo.pay_status]
     }
   }
 }
