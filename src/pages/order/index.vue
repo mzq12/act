@@ -9,31 +9,26 @@
         placeholder="请输入报名时的手机号或是联系人姓名进行查询"
         size="small"
       ></el-input>
-      <button class="queryBtn">查询</button>
+      <button class="queryBtn" @click="queryOrder">查询</button>
     </div>
     <div class="orderResult" v-if="showResult">
       <h4 class="title">订单明细</h4>
       <p class="orderItem">
         <span class="orderItemLeft">订单编号</span>
-        <span class="orderItemRight">20200918056111</span>
+        <span class="orderItemRight">{{ orderInfo.pay_orderid }}</span>
       </p>
       <p class="orderItem">
         <span class="orderItemLeft">创建时间</span>
-        <span class="orderItemRight">2020-09-18</span>
+        <span class="orderItemRight">{{ creteTime }}</span>
       </p>
       <p class="orderItem">
         <span class="orderItemLeft">类型</span>
         <span class="orderItemRight">展会报名</span>
       </p>
-      <p class="orderItem">
-        <span class="orderItemLeft">类型</span>
-        <span class="orderItemRight"
-          >一带一路”国际特色针法传习班（第二期）</span
-        >
-      </p>
+
       <p class="orderItem">
         <span class="orderItemLeft">支付金额</span>
-        <span class="orderItemRight">￥3100.00</span>
+        <span class="orderItemRight">￥{{ orderInfo.pay_amount }}</span>
       </p>
     </div>
     <div class="offlieInfo">
@@ -52,6 +47,7 @@
 <script>
 import banner from '../../components/banner/index'
 import tabs from '../../components/tabs/index'
+import { searchOrder } from '../../apis'
 export default {
   name: 'gallery',
   components: {
@@ -61,7 +57,33 @@ export default {
   data() {
     return {
       input: '',
-      showResult: true
+      showResult: false,
+      orderInfo: {
+        pay_orderid: '',
+        created_at: 0,
+        join_type: '',
+        pay_amount: 0
+      }
+    }
+  },
+  methods: {
+    queryOrder() {
+      searchOrder(this.input).then((res) => {
+        console.log(res)
+        if (res.data.code === 0) {
+          Object.assign(this.orderInfo, res.data.data)
+          this.showResult = true
+        }
+      })
+    }
+  },
+  computed: {
+    creteTime() {
+      return new Date(this.orderInfo.created_at * 1000).toLocaleDateString()
+    },
+    joinType() {
+      let map = { '2': '个人参会' }
+      return ''
     }
   }
 }

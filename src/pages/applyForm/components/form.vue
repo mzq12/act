@@ -132,7 +132,7 @@ export default {
     return {
       formData: {
         join_type: "1",
-        study_type: '',
+        study_type: [],
         cert_img: '',
         name: '',
         sex: '1',
@@ -174,7 +174,6 @@ export default {
       let param = new FormData(); //创建form对象
       param.append('file', file);//通过append向form对象添加数据
       uploadFile(param).then(res => {
-        console.log(res)
         if (res.data.code === '200') {
           this.formData.cert_img = 'http://wfas.org.cn/' + res.data.data
           this.fileList = [
@@ -196,6 +195,7 @@ export default {
               type: 'sucess',
               message: '提交成功'
             })
+            this.$emit('submitSucc', this.formData.pay_type)
           }
         })
       }

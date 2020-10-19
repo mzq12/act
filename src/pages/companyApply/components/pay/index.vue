@@ -5,12 +5,12 @@
         <span class="total_label">支付总额：</span>
         <span class="total_number">￥3780.00</span>
       </div>
-      <el-tabs type="card">
-        <el-tab-pane label="微信支付" name="first">
+      <el-tabs type="card" v-model="type">
+        <el-tab-pane label="微信支付" name="0">
           <el-checkbox v-model="checked" disabled>微信支付</el-checkbox>
-          <button class="payBtn">立即支付</button>
+          <button class="payBtn" @click="redirect">立即支付</button>
         </el-tab-pane>
-        <el-tab-pane label="转账汇款" name="second">
+        <el-tab-pane label="转账汇款" name="1">
           <div class="transforInfo">
             <div class="line">
               <span class="label"> 账户名称: </span>
@@ -39,9 +39,22 @@
 </template>
 <script>
 export default {
+  props: {
+    type: {
+      type: String,
+      value: '0'
+    }
+  },
   data() {
     return {
       checked: true
+    }
+  },
+  methods: {
+    redirect() {
+      var redirect_urls = encodeURIComponent("http://wfas.org.cn/#/companyApply");
+      var urls = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf83290b7354115e0&redirect_uri=" + redirect_urls + "&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
+      window.location.href = urls;
     }
   }
 }

@@ -61,6 +61,15 @@ export let getNewsDetail = nid => {
     }
   });
 };
+export let searchOrder = qs => {
+  return fetch({
+    method: "post",
+    url: "/v1/special/search_order",
+    data: {
+      search_name: qs
+    }
+  });
+};
 export let uploadFile = data => {
   return fetch({
     method: "post",

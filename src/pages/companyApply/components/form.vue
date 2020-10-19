@@ -139,10 +139,7 @@ export default {
       return false
     },
     submit() {
-      console.log(this.formData)
-
       if (this.validate()) {
-
         let data = Object.assign({}, this.formData)
         data.ToNameArr = [this.formData.ToNameArr]
         data.ToWorkArr = [this.formData.ToWorkArr]
@@ -152,6 +149,7 @@ export default {
               type: 'sucess',
               message: '提交成功'
             })
+            this.$emit('submitSucc', this.formData.pay_type)
           }
         })
       } else {

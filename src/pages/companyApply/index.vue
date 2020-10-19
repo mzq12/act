@@ -2,8 +2,8 @@
   <div class="galleryPage">
     <banner></banner>
     <tabs></tabs>
-    <aform></aform>
-    <pay v-if="false"></pay>
+    <aform @submitSucc="handleSubmit"></aform>
+    <pay v-if="showPay"></pay>
   </div>
 </template>
 <script>
@@ -18,6 +18,28 @@ export default {
     tabs,
     aform,
     pay
+  },
+
+  data() {
+    return {
+      showPay: false,
+      payType: '0'
+    }
+  },
+  methods: {
+    handleSubmit(payType) {
+      this.showPay = true
+      this.payType = payType
+    }
+  },
+  created() {
+    const isCode = location.search.indexOf('code')
+    if (isCode > -1) {
+      const s1 = location.search.split('&')
+      const s2 = s1[0].slice(isCode)
+      const s3 = s2.split('=')[1]
+      console.log(s3)
+    }
   }
 }
 </script>

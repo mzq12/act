@@ -5,7 +5,7 @@
     <newsList></newsList>
     <hotNews></hotNews>
     <schedule></schedule>
-    <guest></guest>
+    <guest v-if="false"></guest>
     <gallery></gallery>
     <context></context>
     <trade></trade>
