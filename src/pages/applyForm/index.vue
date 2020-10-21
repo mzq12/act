@@ -50,8 +50,8 @@ export default {
       const s2 = s1[0].slice(isCode)
       const code = s2.split('=')[1]
       const url = window.location.href.split('#')[0]//encodeURIComponent()
-      const insertId = JSON.parse(sessionStorage.getItem('payInfo')).insert_id
-      getPayConfig(code, url, insertId).then(res => {
+      const { insert_id, pay_price } = JSON.parse(sessionStorage.getItem('payInfo'))
+      getPayConfig(code, url, insert_id, pay_price).then(res => {
         let { noncestr, out_trade_no, prepay_id, timestamp, sign } = res.data
         wx.config({
           // debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
