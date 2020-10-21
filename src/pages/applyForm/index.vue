@@ -32,26 +32,59 @@ export default {
     handleSubmit(payType) {
       this.showPay = true
       this.payType = payType
+    },
+    getSign: (params) => {
+      const { nonceStr, timestamp, prepay_id, key } = params
+      const stringA = "appId=wxf83290b7354115e0" + "&nonceStr=" + nonceStr + "&package=prepay_id=" + prepay_id + "&signType=MD5&timeStamp=" + timestamp;
+      const stringSignTemp = stringA + "&key=" + key;
+      const paySign = md5(stringSignTemp).toUpperCase();
+      console.log(stringA)
+      console.log(paySign)
+      return paySign;
     }
   },
   created() {
     const isCode = location.search.indexOf('code')
     if (isCode > -1) {
-      let nonce = Math.random().toString(36).substr(2)
-      //let sign = md5(`appid=${appId}&body=${body}&device_info=WEB&mch_id=${mchId}&nonce_str=${nonce}&key=${key}`).toUpperCase()
-      wx.config({
-        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: 'wxf83290b7354115e0', // 必填，公众号的唯一标识
-        timestamp: Date.now() / 1000, // 必填，生成签名的时间戳
-        nonceStr: nonce, // 必填，生成签名的随机串
-        signature: '930497a1dc7d0d8b698367e1714e81b7',// 必填，签名
-        jsApiList: ['chooseWXPay'] // 必填，需要使用的JS接口列表
-      });
       const s1 = location.search.split('&')
       const s2 = s1[0].slice(isCode)
       const code = s2.split('=')[1]
-      getPayConfig(code).then(res => {
+      const url = window.location.href.split('#')[0]//encodeURIComponent()
+      getPayConfig(code, url).then(res => {
         console.log(res.data)
+        let { noncestr, out_trade_no, prepay_id, timestamp, sign } = res.data
+        wx.config({
+          debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+          appId: 'wxf83290b7354115e0', // 必填，公众号的唯一标识
+          timestamp: timestamp, // 必填，生成签名的时间戳
+          nonceStr: noncestr, // 必填，生成签名的随机串
+          signature: sign,// 必填，签名
+          jsApiList: ['chooseWXPay'] // 必填，需要使用的JS接口列表
+        });
+        const signs = this.getSign({
+          timestamp: timestamp,
+          nonceStr: noncestr,
+          prepay_id: prepay_id,
+          key: '930497a1dc7d0d8b698367e1714e81b7',
+        })
+        wx.chooseWXPay({
+          timestamp: timestamp,
+          nonceStr: noncestr,
+          package: 'prepay_id=' + prepay_id,
+          signType: 'MD5',
+          paySign: sign, // 支付签名
+          success: function (res) {
+            alert('成功')
+            alert(JSON.stringify(res))
+          },
+          cancel: function (res) {
+            alert('已取消支付')
+            alert(res.errMsg)
+          },
+          fail: function (res) {
+            alert(JSON.stringify(res))
+          }
+        })
       })
     }
   }

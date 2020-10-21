@@ -80,12 +80,13 @@ export let uploadFile = data => {
     data: data
   });
 };
-export let getPayConfig = code => {
+export let getPayConfig = (code, url) => {
   return fetch({
     method: "post",
     url: "/v1/special/place_order",
     data: {
-      code: code
+      code: code,
+      url: url
     }
   });
 };
