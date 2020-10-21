@@ -195,6 +195,10 @@ export default {
               type: 'sucess',
               message: '提交成功'
             })
+            sessionStorage.setItem('payInfo', JSON.stringify({
+              insert_id: res.data.data.insert_id,
+              pay_price: res.data.data.pay_price
+            }))
             this.$emit('submitSucc', this.formData.pay_type)
           }
         })

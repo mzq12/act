@@ -3,7 +3,7 @@
     <div class="infoCotainer">
       <div class="total">
         <span class="total_label">支付总额：</span>
-        <span class="total_number">￥3780.00</span>
+        <span class="total_number">￥{{ formatePrice }}</span>
       </div>
       <el-tabs type="card" v-model="type">
         <el-tab-pane label="微信支付" name="0">
@@ -43,6 +43,10 @@ export default {
     type: {
       type: String,
       value: '0'
+    },
+    price: {
+      type: Number,
+      value: 0
     }
   },
   data() {
@@ -56,6 +60,11 @@ export default {
       var redirect_urls = encodeURIComponent("http://wfas.org.cn/#/apply");
       var urls = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf83290b7354115e0&redirect_uri=" + redirect_urls + "&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
       window.location.href = urls;
+    }
+  },
+  computed: {
+    formatePrice() {
+      return Math.floor(this.price / 100)
     }
   }
 }
