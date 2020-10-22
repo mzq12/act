@@ -3,14 +3,14 @@
     <div class="infoCotainer">
       <div class="total">
         <span class="total_label">支付总额：</span>
-        <span class="total_number">￥3780.00</span>
+        <span class="total_number">￥{{ formatePrice }}</span>
       </div>
       <el-tabs type="card" v-model="type">
-        <el-tab-pane label="微信支付" name="0">
+        <el-tab-pane label="微信支付" name="0" v-if="active === '0'">
           <el-checkbox v-model="checked" disabled>微信支付</el-checkbox>
           <button class="payBtn" @click="redirect">立即支付</button>
         </el-tab-pane>
-        <el-tab-pane label="转账汇款" name="1">
+        <el-tab-pane label="转账汇款" name="1" v-if="active === '1'">
           <div class="transforInfo">
             <div class="line">
               <span class="label"> 账户名称: </span>
@@ -43,18 +43,32 @@ export default {
     type: {
       type: String,
       value: '0'
+    },
+    price: {
+      type: Number,
+      value: 0
     }
   },
   data() {
     return {
-      checked: true
+      checked: true,
+      active: this.type,
+      payWay: ''
     }
   },
   methods: {
     redirect() {
-      var redirect_urls = encodeURIComponent("http://wfas.org.cn/#/companyApply");
+      var redirect_urls = encodeURIComponent("http://wfas.org.cn/dist/#/companyApply");
       var urls = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf83290b7354115e0&redirect_uri=" + redirect_urls + "&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
       window.location.href = urls;
+    }
+  },
+  created() {
+    console.log(typeof this.type)
+  },
+  computed: {
+    formatePrice() {
+      return Math.floor(this.price / 100)
     }
   }
 }

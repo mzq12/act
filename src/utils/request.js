@@ -1,7 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 const fetch = axios.create({
-  //baseURL: "http://api.wfas.org.cn",
+  baseURL: "http://api.wfas.org.cn",
   timeOut: 5000, // 请求过期时间
   withCredentials: false
   //headers: { "Content-Type": "application/json" }

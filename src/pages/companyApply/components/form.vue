@@ -68,6 +68,22 @@
       <el-form-item label="职 务【参展人】">
         <el-input v-model="formData.ToWorkArr" size="small"></el-input>
       </el-form-item>
+      <el-form-item label="发票抬头">
+        <el-input v-model="formData.inv_name" size="small"></el-input>
+      </el-form-item>
+      <el-form-item label="发票税号">
+        <el-input v-model="formData.inv_num" size="small"></el-input>
+      </el-form-item>
+      <el-form-item label="索取方式">
+        <el-select
+          v-model="formData.inv_asktype"
+          style="width: 100%"
+          size="small"
+        >
+          <el-option label="现场索取" value="0"></el-option>
+          <el-option label="邮寄到联系地址" value="1"></el-option>
+        </el-select>
+      </el-form-item>
       <el-form-item label="支付方式">
         <el-radio-group v-model="formData.join_type">
           <el-radio label="0">在线支付 ￥2500 公司线上参展</el-radio>
@@ -103,7 +119,10 @@ export default {
         joinEmail: "",
         ToNameArr: "",
         ToWorkArr: "",
-        join_type: '0'
+        join_type: '0',
+        inv_num: "",
+        inv_name: "",
+        inv_asktype: "0"
       },
       fileList: []
     }
@@ -149,7 +168,12 @@ export default {
               type: 'sucess',
               message: '提交成功'
             })
-            this.$emit('submitSucc', this.formData.pay_type)
+            console.log(res.data.data)
+            sessionStorage.setItem('payInfo', JSON.stringify({
+              insert_id: res.data.data.insert_id,
+              pay_price: res.data.data.pay_price
+            }))
+            this.$emit('submitSucc', this.formData.join_type)
           }
         })
       } else {

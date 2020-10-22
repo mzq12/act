@@ -10,7 +10,7 @@ export let personalApply = data => {
 export let companyApply = data => {
   return fetch({
     method: "post",
-    url: "/v1/special/company",
+    url: "/v1/special/company_reg",
     data: data
   });
 };

@@ -73,11 +73,8 @@ export default {
           package: 'prepay_id=' + prepay_id,
           signType: 'MD5',
           paySign: signs, // 支付签名
-          success: function (res) {
-            this.$message({
-              type: 'success',
-              message: '支付成功'
-            })
+          success: (res) => {
+            this.$router.push('/order')
           },
           cancel: function (res) {
             console.log(res.errMsg)

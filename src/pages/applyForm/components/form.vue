@@ -110,6 +110,23 @@
       <el-form-item label="论文题目">
         <el-input v-model="formData.paper_project" size="small"></el-input>
       </el-form-item>
+      <el-form-item label="发票抬头">
+        <el-input v-model="formData.inv_name" size="small"></el-input>
+      </el-form-item>
+      <el-form-item label="发票税号">
+        <el-input v-model="formData.inv_num" size="small"></el-input>
+      </el-form-item>
+      <el-form-item label="索取方式">
+        <el-select
+          v-model="formData.inv_asktype"
+          style="width: 100%"
+          size="small"
+        >
+          <el-option label="现场索取" value="0"></el-option>
+          <el-option label="邮寄到联系地址" value="1"></el-option>
+        </el-select>
+      </el-form-item>
+
       <el-form-item label="支付方式">
         <el-radio-group v-model="formData.pay_type">
           <el-radio label="0">线上支付</el-radio>
@@ -143,7 +160,10 @@ export default {
         address: '',
         paper_project: '',
         pay_type: '0',
-        paper_type: '0'
+        paper_type: '0',
+        inv_num: "",
+        inv_name: "",
+        inv_asktype: "0"
       },
       fileList: []
     }
