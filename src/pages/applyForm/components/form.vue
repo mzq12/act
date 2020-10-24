@@ -135,9 +135,7 @@
       </el-form-item>
     </el-form>
     <div class="instruction">
-      请将本表填写后发至世界针联秘书处邮箱 contact@wfas.org.cn 。
-      申请发言者请同时发送中英文摘要（中文不超过300字）、中英文简
-      历（不超过一页纸）和电子版高清大头照。
+      请申请发言者发送中英文摘要（中文不超过300字）、中英文简历（不超过一页纸）和电子版高清大头照到世界针联秘书处邮箱contact@wfas.org.cn
     </div>
     <button class="submitBtn" @click="submit">提交</button>
   </div>

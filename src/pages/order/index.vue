@@ -19,7 +19,7 @@
       </p>
       <p class="orderItem">
         <span class="orderItemLeft">创建时间</span>
-        <span class="orderItemRight">{{ creteTime }}</span>
+        <span class="orderItemRight">{{ orderInfo.created_at }}</span>
       </p>
       <p class="orderItem">
         <span class="orderItemLeft">类型</span>

@@ -2,7 +2,7 @@
   width: 100%;
   background: rgb(8 89 175);
   box-sizing: border-box;
-  padding-top: 33px;
+  padding-top: 23px;
   padding-bottom: 15px;
   display: flex;
   flex-direction: column;
@@ -14,11 +14,11 @@
   height: 66px;
   background: url('../../assets//logo.png') no-repeat;
   background-size: contain;
-  margin-bottom: 17px;
+  margin-bottom: 3px;
 }
 
 .footer .title {
-  margin-bottom: 33px;
+  margin-bottom: 15px;
   font-size: 15px;
   color: #FFFFFF;
 }
