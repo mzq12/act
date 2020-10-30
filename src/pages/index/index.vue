@@ -2,6 +2,7 @@
   <div class="indexPage">
     <banner></banner>
     <tabs></tabs>
+    <applyEntry></applyEntry>
     <newsList></newsList>
     <hotNews></hotNews>
     <schedule></schedule>
@@ -9,7 +10,6 @@
     <gallery></gallery>
     <context></context>
     <trade></trade>
-    <applyEntry></applyEntry>
     <bfooter></bfooter>
   </div>
 </template>
