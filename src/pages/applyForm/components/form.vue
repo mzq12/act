@@ -123,7 +123,7 @@
           size="small"
         >
           <el-option label="现场索取" value="0"></el-option>
-          <el-option label="邮寄到联系地址" value="1"></el-option>
+          <el-option label="电子发票到邮箱" value="1"></el-option>
         </el-select>
       </el-form-item>
 
